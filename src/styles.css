@@ -1,0 +1,255 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
+
+@theme inline {
+  --font-serif: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 8px);
+  --radius-2xl: calc(var(--radius) + 16px);
+  --radius-3xl: calc(var(--radius) + 28px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-gold-deep: var(--gold-deep);
+  --color-charcoal: var(--charcoal);
+  --color-charcoal-deep: var(--charcoal-deep);
+  --color-cream: var(--cream);
+  --color-taupe: var(--taupe);
+  --color-espresso: var(--espresso);
+  --color-lavender: var(--lavender);
+  --color-whatsapp: var(--whatsapp);
+}
+
+:root {
+  --radius: 1rem;
+
+  /* Warm light luxury palette — extracted from the salon photo:
+     cream walls, soft taupe leather, warm orange accent, espresso wood */
+  --background: oklch(0.97 0.012 75);            /* warm ivory */
+  --foreground: oklch(0.24 0.018 50);            /* deep espresso text */
+  --card: oklch(0.99 0.008 80);                  /* near-white card */
+  --card-foreground: oklch(0.24 0.018 50);
+  --popover: oklch(0.99 0.008 80);
+  --popover-foreground: oklch(0.24 0.018 50);
+  --primary: oklch(0.7 0.16 50);                 /* warm orange #F28729-ish */
+  --primary-foreground: oklch(0.99 0.005 80);
+  --secondary: oklch(0.92 0.018 75);             /* sand */
+  --secondary-foreground: oklch(0.24 0.018 50);
+  --muted: oklch(0.93 0.012 75);
+  --muted-foreground: oklch(0.45 0.012 50);
+  --accent: oklch(0.7 0.16 50);
+  --accent-foreground: oklch(0.99 0.005 80);
+  --destructive: oklch(0.62 0.21 27);
+  --destructive-foreground: oklch(0.99 0.005 80);
+  --border: oklch(0.88 0.012 70);
+  --input: oklch(0.94 0.012 75);
+  --ring: oklch(0.7 0.16 50);
+
+  /* Brand tokens */
+  --gold: oklch(0.82 0.14 88);                   /* champagne gold */
+  --gold-soft: oklch(0.9 0.09 90);
+  --gold-deep: oklch(0.62 0.13 75);              /* antique gold */
+  --charcoal: oklch(0.28 0.02 50);               /* espresso */
+  --charcoal-deep: oklch(0.22 0.018 45);
+  --cream: oklch(0.95 0.018 80);
+  --taupe: oklch(0.62 0.025 55);                 /* #8C7C6D */
+  --espresso: oklch(0.26 0.02 45);               /* #40342F */
+  --lavender: oklch(0.74 0.07 295);              /* #A199BF subtle accent */
+
+  --gradient-warm: linear-gradient(135deg, oklch(0.78 0.14 55), oklch(0.62 0.17 40));
+  --gradient-gold: linear-gradient(135deg, oklch(0.92 0.1 92), oklch(0.78 0.15 85) 45%, oklch(0.6 0.14 70));
+  --gradient-cream: linear-gradient(180deg, oklch(0.98 0.01 80), oklch(0.94 0.018 75));
+  --gradient-espresso: linear-gradient(135deg, oklch(0.3 0.022 50), oklch(0.2 0.018 45));
+
+  --shadow-soft: 0 8px 30px -8px oklch(0.4 0.03 50 / 18%);
+  --shadow-glow: 0 20px 60px -20px oklch(0.7 0.16 50 / 35%);
+  --shadow-elegant: 0 30px 80px -30px oklch(0.3 0.03 50 / 30%);
+  --shadow-pill: 0 10px 40px -10px oklch(0.3 0.03 50 / 22%);
+  --shadow-card: 0 2px 8px -2px oklch(0.3 0.03 50 / 8%), 0 12px 40px -12px oklch(0.3 0.03 50 / 12%);
+}
+
+.dark {
+  --background: oklch(0.97 0.012 75);
+  --foreground: oklch(0.24 0.018 50);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "ss01", "cv11";
+    /* room for mobile bottom-nav */
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  @media (max-width: 1023px) {
+    body { padding-bottom: calc(6rem + env(safe-area-inset-bottom)); }
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.025em;
+    font-weight: 600;
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+  }
+
+  ::selection {
+    background-color: var(--gold);
+    color: var(--primary-foreground);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--cream); }
+  ::-webkit-scrollbar-thumb { background: var(--taupe); border-radius: 999px; border: 2px solid var(--cream); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+}
+
+@layer utilities {
+  .font-serif { font-family: var(--font-serif); }
+  .font-sans { font-family: var(--font-sans); }
+  .text-gold { color: var(--gold); }
+  .bg-gold { background-color: var(--gold); }
+  .border-gold { border-color: var(--gold); }
+  .bg-charcoal { background-color: var(--charcoal); }
+  .bg-charcoal-deep { background-color: var(--charcoal-deep); }
+  .bg-cream { background-color: var(--cream); }
+  .bg-espresso { background-color: var(--espresso); }
+  .text-espresso { color: var(--espresso); }
+  .text-taupe { color: var(--taupe); }
+  .text-lavender { color: var(--lavender); }
+  .border-espresso { border-color: var(--espresso); }
+
+  .gradient-warm { background: var(--gradient-warm); }
+  .gradient-gold { background: var(--gradient-gold); }
+  .gradient-cream { background: var(--gradient-cream); }
+  .gradient-espresso { background: var(--gradient-espresso); }
+
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-elegant { box-shadow: var(--shadow-elegant); }
+  .shadow-pill { box-shadow: var(--shadow-pill); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-espresso {
+    background: var(--gradient-espresso);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* iOS-style glass */
+  .glass {
+    background: oklch(0.99 0.008 80 / 70%);
+    backdrop-filter: saturate(180%) blur(24px);
+    -webkit-backdrop-filter: saturate(180%) blur(24px);
+  }
+
+  .glass-dark {
+    background: oklch(0.22 0.018 45 / 80%);
+    backdrop-filter: saturate(180%) blur(24px);
+    -webkit-backdrop-filter: saturate(180%) blur(24px);
+  }
+
+  /* Scroll-reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { scrollbar-width: none; }
+}
+
+@keyframes gold-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 oklch(0.7 0.16 50 / 50%); }
+  50% { box-shadow: 0 0 0 18px oklch(0.7 0.16 50 / 0%); }
+}
+.animate-gold-pulse { animation: gold-pulse 2.4s ease-in-out infinite; }
+
+@keyframes whatsapp-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 oklch(0.7 0.18 145 / 55%); }
+  50% { box-shadow: 0 0 0 16px oklch(0.7 0.18 145 / 0%); }
+}
+.animate-whatsapp-pulse { animation: whatsapp-pulse 2.6s ease-out infinite; }
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fade-up 1s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in { animation: fade-in 1.2s ease-out both; }
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float { animation: float-slow 6s ease-in-out infinite; }
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, oklch(1 0 0 / 30%), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
