@@ -6,8 +6,7 @@ import { MobileBottomNav } from "@/components/MobileBottomNav";
 import { useReveal } from "@/hooks/use-reveal";
 
 import appCss from "../styles.css?url";
-import heroSalon from "@/assets/hero-salon.jpg";
-import salonInterior from "@/assets/salon-interior.jpg";
+import heroSalon from "@/assets/shampoo-luxury.jpg";
 
 
 function NotFoundComponent() {
@@ -59,18 +58,24 @@ export const Route = createRootRoute({
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      // DNS prefetch speeds up the font connection without blocking render
+      { rel: "dns-prefetch", href: "https://fonts.googleapis.com" },
+      { rel: "dns-prefetch", href: "https://fonts.gstatic.com" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      // Non-blocking font load: media="print" loads async, onload switches to "all"
+      // Only load weights actually used: Fraunces 400/600/700 italic + Plus Jakarta 400/500/600/700
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap",
-      },
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=optional",
+        media: "print",
+        onLoad: "this.media='all'",
+      } as any,
       { rel: "manifest", href: "/manifest.webmanifest" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
       { rel: "icon", type: "image/png", sizes: "192x192", href: "/icon-192.png" },
       { rel: "icon", type: "image/png", sizes: "512x512", href: "/icon-512.png" },
       { rel: "preload", as: "image", href: heroSalon, fetchpriority: "high" } as any,
-      { rel: "preload", as: "image", href: salonInterior } as any,
     ],
   }),
   shellComponent: RootShell,

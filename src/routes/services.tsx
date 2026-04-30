@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { whatsappLink, DEFAULT_MESSAGE } from "@/lib/whatsapp";
 import { SectionHeading } from "@/components/SectionHeading";
+import hairFrontals from "@/assets/hair-frontals.jpg";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -64,7 +65,20 @@ function ServicesPage() {
           subtitle="Every service, one goal — you leaving looking and feeling your best."
         />
 
-        <div className="mt-20 space-y-20">
+        {/* Feature image */}
+        <div className="mt-12 rounded-[2rem] overflow-hidden shadow-elegant reveal">
+          <img
+            src={hairFrontals}
+            alt="Styling techniques for hair frontals at 360 Classy Look"
+            width={1200}
+            height={500}
+            loading="eager"
+            decoding="async"
+            className="w-full h-[320px] md:h-[420px] object-cover object-top"
+          />
+        </div>
+
+        <div className="mt-16 space-y-20">
           {categories.map((cat) => (
             <div key={cat.title}>
               <div className="flex items-center gap-6 mb-10">

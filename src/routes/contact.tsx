@@ -145,10 +145,10 @@ function ContactPage() {
                 </div>
               </div>
               <div className="flex items-center gap-5 pt-2">
-                <a href="#" aria-label="Instagram" className="text-foreground/70 hover:text-gold">
+                <a href="https://www.instagram.com/360classy_look_hair_salon/" target="_blank" rel="noreferrer" aria-label="Instagram" className="text-foreground/70 hover:text-gold">
                   <Instagram size={22} />
                 </a>
-                <a href="#" aria-label="Facebook" className="text-foreground/70 hover:text-gold">
+                <a href="https://web.facebook.com/groups/157325990972850/" target="_blank" rel="noreferrer" aria-label="Facebook" className="text-foreground/70 hover:text-gold">
                   <Facebook size={22} />
                 </a>
               </div>

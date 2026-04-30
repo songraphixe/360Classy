@@ -4,7 +4,7 @@ import { useState } from "react";
 import { whatsappLink, DEFAULT_MESSAGE, WHATSAPP_DISPLAY } from "@/lib/whatsapp";
 import { SectionHeading } from "@/components/SectionHeading";
 
-import heroSalon from "@/assets/hero-salon.jpg";
+import heroSalon from "@/assets/shampoo-luxury.jpg";
 import salonInterior from "@/assets/salon-interior.jpg";
 import hairWaves from "@/assets/hair-waves.jpg";
 import hairStraight from "@/assets/hair-straight.jpg";
@@ -13,7 +13,7 @@ import bridal from "@/assets/bridal.jpg";
 import braids from "@/assets/braids.jpg";
 import mensCut from "@/assets/mens-cut.jpg";
 import kidsImg from "@/assets/kids.jpg";
-import nails from "@/assets/nails.jpg";
+import heroSalonOrig from "@/assets/hero-salon.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -45,7 +45,7 @@ const services = [
   { title: "Kids' Hair", desc: "A calm, friendly space where your little ones are in great hands." },
 ];
 
-const galleryImgs = [bridal, mensCut, braids, hairWaves, hairCurls, kidsImg];
+const galleryImgs = [bridal, mensCut, braids, hairWaves, hairCurls, heroSalonOrig];
 
 const testimonials = [
   { quote: "The best salon experience I've had in Accra. Clean, professional, and they actually listen to what you want.", name: "Abena K." },
@@ -148,7 +148,7 @@ function Home() {
       </section>
 
       {/* ABOUT */}
-      <section className="py-28 lg:py-36 px-4 lg:px-6">
+      <section className="py-16 lg:py-20 px-4 lg:px-6">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <div className="relative reveal">
             <div className="rounded-[2rem] overflow-hidden shadow-elegant">
@@ -198,8 +198,8 @@ function Home() {
       </section>
 
       {/* SERVICES */}
-      <section className="py-28 px-4 lg:px-6">
-        <div className="max-w-7xl mx-auto rounded-[2.5rem] bg-cream px-6 md:px-14 py-20 md:py-24 shadow-soft">
+      <section className="py-16 px-4 lg:px-6">
+        <div className="max-w-7xl mx-auto rounded-[2.5rem] bg-cream px-6 md:px-14 py-14 md:py-16 shadow-soft">
           <SectionHeading
             align="center"
             eyebrow="Our Craft"
@@ -239,7 +239,7 @@ function Home() {
       </section>
 
       {/* GALLERY PREVIEW */}
-      <section id="gallery" className="py-28 px-4 lg:px-6">
+      <section id="gallery" className="py-16 px-4 lg:px-6">
         <div className="max-w-7xl mx-auto">
           <SectionHeading
             align="center"
@@ -282,7 +282,7 @@ function Home() {
       </section>
 
       {/* BOOKING WIDGET */}
-      <section className="py-28 px-4 lg:px-6">
+      <section className="py-16 px-4 lg:px-6">
         <div className="max-w-7xl mx-auto relative rounded-[2.5rem] overflow-hidden shadow-elegant">
           <div className="absolute inset-0">
             <img src={hairStraight} alt="" className="w-full h-full object-cover" />
@@ -327,7 +327,7 @@ function Home() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="py-28 px-4 lg:px-6">
+      <section className="py-16 px-4 lg:px-6">
         <div className="max-w-7xl mx-auto">
           <SectionHeading
             align="center"
@@ -356,8 +356,8 @@ function Home() {
       </section>
 
       {/* LOCATION */}
-      <section className="py-28 px-4 lg:px-6">
-        <div className="max-w-7xl mx-auto rounded-[2.5rem] bg-cream px-6 md:px-14 py-20 shadow-soft">
+      <section className="py-16 px-4 lg:px-6">
+        <div className="max-w-7xl mx-auto rounded-[2.5rem] bg-cream px-6 md:px-14 py-14 shadow-soft">
           <SectionHeading
             eyebrow="Visit Us"
             title={<>Find us on <span className="italic font-light text-gradient-gold">Palace Street.</span></>}

@@ -73,10 +73,10 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex gap-3 pt-2">
-                <a href="#" aria-label="Instagram" className="h-10 w-10 rounded-full bg-cream/10 hover:bg-gold flex items-center justify-center text-cream transition-colors">
+                <a href="https://www.instagram.com/360classy_look_hair_salon/" target="_blank" rel="noreferrer" aria-label="Instagram" className="h-10 w-10 rounded-full bg-cream/10 hover:bg-gold flex items-center justify-center text-cream transition-colors">
                   <Instagram size={18} />
                 </a>
-                <a href="#" aria-label="Facebook" className="h-10 w-10 rounded-full bg-cream/10 hover:bg-gold flex items-center justify-center text-cream transition-colors">
+                <a href="https://web.facebook.com/groups/157325990972850/" target="_blank" rel="noreferrer" aria-label="Facebook" className="h-10 w-10 rounded-full bg-cream/10 hover:bg-gold flex items-center justify-center text-cream transition-colors">
                   <Facebook size={18} />
                 </a>
               </li>
