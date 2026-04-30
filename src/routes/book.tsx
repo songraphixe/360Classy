@@ -50,7 +50,7 @@ function BookPage() {
 
         <div className="mt-16 space-y-12">
           {/* Step 1 */}
-          <div>
+          <div className="reveal">
             <div className="flex items-baseline gap-4 mb-6">
               <span className="font-serif text-2xl text-gold">01</span>
               <h3 className="font-serif text-xl text-foreground">Select your service</h3>
@@ -73,7 +73,7 @@ function BookPage() {
           </div>
 
           {/* Step 2 */}
-          <div>
+          <div className="reveal">
             <div className="flex items-baseline gap-4 mb-6">
               <span className="font-serif text-2xl text-gold">02</span>
               <h3 className="font-serif text-xl text-foreground">Pick a preferred day</h3>
@@ -96,7 +96,7 @@ function BookPage() {
           </div>
 
           {/* Step 3 */}
-          <div>
+          <div className="reveal">
             <div className="flex items-baseline gap-4 mb-6">
               <span className="font-serif text-2xl text-gold">03</span>
               <h3 className="font-serif text-xl text-foreground">Any special notes?</h3>
@@ -111,7 +111,7 @@ function BookPage() {
           </div>
 
           {/* Preview */}
-          <div className="bg-card border border-gold/30 p-6 md:p-8">
+          <div className="bg-card border border-gold/30 p-6 md:p-8 reveal">
             <div className="text-xs uppercase tracking-[0.3em] text-gold mb-4">
               Message Preview
             </div>
@@ -120,7 +120,7 @@ function BookPage() {
             </pre>
           </div>
 
-          <div className="text-center">
+          <div className="text-center reveal">
             <a
               href={whatsappLink(message)}
               target="_blank"

@@ -80,7 +80,7 @@ function ServicesPage() {
 
         <div className="mt-16 space-y-20">
           {categories.map((cat) => (
-            <div key={cat.title}>
+            <div key={cat.title} className="reveal">
               <div className="flex items-center gap-6 mb-10">
                 <h3 className="font-serif text-3xl md:text-4xl text-gold">{cat.title}</h3>
                 <div className="flex-1 h-px bg-gold/30" />

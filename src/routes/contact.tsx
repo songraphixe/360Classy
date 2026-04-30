@@ -60,7 +60,7 @@ function ContactPage() {
         <div className="mt-16 grid lg:grid-cols-2 gap-12">
           {/* Form */}
           <form
-            className="space-y-6"
+            className="space-y-6 reveal"
             onSubmit={(e) => {
               e.preventDefault();
               window.open(whatsappLink(compose()), "_blank");
@@ -113,7 +113,7 @@ function ContactPage() {
           </form>
 
           {/* Right column */}
-          <div className="space-y-8">
+          <div className="space-y-8 reveal">
             <div className="space-y-5">
               <div className="flex items-start gap-4">
                 <MapPin className="text-gold mt-1 shrink-0" size={20} />

@@ -71,7 +71,7 @@ function GalleryPage() {
           title={<>The <span className="italic text-gradient-gold">Lookbook</span></>}
         />
 
-        <div className="mt-12 flex flex-wrap justify-center gap-3">
+        <div className="mt-12 flex flex-wrap justify-center gap-3 reveal">
           {cats.map((c) => (
             <button
               key={c}
@@ -87,7 +87,7 @@ function GalleryPage() {
           ))}
         </div>
 
-        <div className="mt-12 columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+        <div className="mt-12 columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4 reveal">
           {filtered.map((p, i) => (
             <button
               key={i}
