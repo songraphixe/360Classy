@@ -74,6 +74,8 @@ function Home() {
               className="absolute inset-0 w-full h-full object-cover scale-105"
               width={1920}
               height={1280}
+              fetchPriority="high"
+              decoding="sync"
             />
             <div className="absolute inset-0 bg-gradient-to-br from-espresso/80 via-espresso/55 to-espresso/30" />
             <div className="absolute inset-0 bg-gradient-to-t from-espresso/70 via-transparent to-transparent" />
@@ -153,7 +155,11 @@ function Home() {
               <img
                 src={salonInterior}
                 alt="Inside the 360 Classy Look salon"
-                loading="lazy"
+                width={800}
+                height={1000}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 className="w-full aspect-[4/5] object-cover hover:scale-105 transition-transform duration-[1.2s] ease-out"
               />
             </div>
@@ -252,7 +258,10 @@ function Home() {
                 <img
                   src={src}
                   alt="Salon work"
+                  width={600}
+                  height={750}
                   loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1.4s] ease-out"
                 />
               </div>

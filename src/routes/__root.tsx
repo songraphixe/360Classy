@@ -7,6 +7,8 @@ import { useReveal } from "@/hooks/use-reveal";
 
 import appCss from "../styles.css?url";
 import heroSalon from "@/assets/hero-salon.jpg";
+import salonInterior from "@/assets/salon-interior.jpg";
+
 
 function NotFoundComponent() {
   return (
@@ -59,11 +61,16 @@ export const Route = createRootRoute({
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap",
+      },
       { rel: "manifest", href: "/manifest.webmanifest" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
       { rel: "icon", type: "image/png", sizes: "192x192", href: "/icon-192.png" },
       { rel: "icon", type: "image/png", sizes: "512x512", href: "/icon-512.png" },
       { rel: "preload", as: "image", href: heroSalon, fetchpriority: "high" } as any,
+      { rel: "preload", as: "image", href: salonInterior } as any,
     ],
   }),
   shellComponent: RootShell,

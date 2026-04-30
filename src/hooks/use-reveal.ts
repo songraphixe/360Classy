@@ -1,46 +1,45 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
+import { useLocation } from "@tanstack/react-router";
 
 /**
  * Adds `in-view` class to any `.reveal` element when scrolled into view.
- * Re-runs on every render to catch dynamically added elements in SPA mode.
  */
 export function useReveal() {
-  const observerRef = useRef<IntersectionObserver | null>(null);
+  const location = useLocation();
 
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    // Schedule observer setup on next frame to ensure DOM is fully updated
-    const timer = requestAnimationFrame(() => {
-      // Disconnect previous observer if it exists
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in-view");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.05, rootMargin: "0px 0px -10px 0px" },
+    );
 
-      const els = document.querySelectorAll<HTMLElement>(".reveal:not(.in-view)");
-      if (!els.length) return;
+    const observe = () => {
+      document.querySelectorAll<HTMLElement>(".reveal:not(.in-view)").forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        // Already visible on screen — reveal immediately
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add("in-view");
+        } else {
+          io.observe(el);
+        }
+      });
+    };
 
-      const io = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting) {
-              e.target.classList.add("in-view");
-              io.unobserve(e.target);
-            }
-          });
-        },
-        { threshold: 0.12, rootMargin: "0px 0px -60px 0px" },
-      );
-      els.forEach((el) => io.observe(el));
-      observerRef.current = io;
-    });
+    // Allow DOM to settle before querying
+    const timeout = setTimeout(observe, 100);
 
     return () => {
-      cancelAnimationFrame(timer);
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-        observerRef.current = null;
-      }
+      clearTimeout(timeout);
+      io.disconnect();
     };
-  }); // Re-run on every render to catch newly added elements
+  }, [location.pathname]);
 }
